@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TextKit.tech: The Complete Guide to Browser-Local Text Tools — Word Counter, JSON Formatter, Case Converter, Token Counter and 29 More</title>
+<meta name="description" content="A complete look at TextKit.tech — the browser-local suite of free text tools used by writers, developers, and SEOs. Word counter, JSON formatter, case converter, text diff, token counter, character counter for Twitter, remove duplicate lines, lorem ipsum generator, and twenty-five more. Everything runs in your browser. Nothing is uploaded.">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://textkit.tech/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://textkit.tech/#pillar-article",
+      "headline": "TextKit.tech: The Complete Guide to Browser-Local Text Tools (2026)",
+      "description": "Long-form profile of TextKit.tech — 33 browser-local text tools and 41 long-form guides for writers, developers, and SEOs. Word counter, JSON formatter, case converter, text diff, token counter, character counter for Twitter, remove duplicate lines, lorem ipsum generator, and twenty-five more. Browser-local processing; nothing is uploaded.",
+      "datePublished": "2026-05-26",
+      "dateModified": "2026-06-09",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "articleSection": "Software Profile",
+      "keywords": "textkit, text tools, word counter, json formatter, case converter, text diff, character counter, count twitter characters, remove spaces, remove duplicate lines, lorem ipsum, palindrome checker, sort lines alphabetically, find and replace, regex replace, camelCase vs kebab-case, base64 encoder, binary translator, morse code, pig latin, url slug, markdown table generator, email extractor, hash generator, random word generator, invisible text, bold text generator, text reverser, text repeater, shuffle lines",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://textkit.tech/#org",
+        "name": "TextKit"
+      },
+      "about": [
+        {"@type": "WebApplication", "@id": "https://textkit.tech/word-counter#tool", "name": "Word Counter"},
+        {"@type": "WebApplication", "@id": "https://textkit.tech/character-counter#tool", "name": "Character Counter"},
+        {"@type": "WebApplication", "@id": "https://textkit.tech/json-formatter#tool", "name": "JSON Formatter"},
+        {"@type": "WebApplication", "@id": "https://textkit.tech/case-converter#tool", "name": "Case Converter"},
+        {"@type": "WebApplication", "@id": "https://textkit.tech/text-diff#tool", "name": "Text Diff"},
+        {"@type": "WebApplication", "@id": "https://textkit.tech/remove-duplicates#tool", "name": "Remove Duplicate Lines"},
+        {"@type": "WebApplication", "@id": "https://textkit.tech/remove-spaces#tool", "name": "Remove Extra Spaces"},
+        {"@type": "WebApplication", "@id": "https://textkit.tech/lorem-ipsum#tool", "name": "Lorem Ipsum Generator"}
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://textkit.tech/#org",
+      "name": "TextKit",
+      "url": "https://textkit.tech/",
+      "description": "A free suite of browser-local text tools for writers, developers, and SEOs. All processing runs on your device, never uploaded."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://textkit.tech/#website",
+      "name": "TextKit",
+      "url": "https://textkit.tech/",
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --ink: #1a1714;
+    --paper: #fbf8f3;
+    --rule: #d6cfc2;
+    --accent: #2d4a3e;
+    --accent-2: #6b4f2c;
+    --accent-3: #5c4a1f;
+    --muted: #6d655a;
+    --card: #f1ede2;
+    --card-2: #ecede4;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 6rem;
+    font-size: 1.05rem;
+  }
+  h1 {
+    font-size: 2.3rem;
+    line-height: 1.18;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+  }
+  .deck {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 1.12rem;
+    line-height: 1.5;
+    margin: 0 0 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  h2 {
+    font-size: 1.55rem;
+    margin-top: 3rem;
+    margin-bottom: 0.7rem;
+    color: var(--accent);
+    letter-spacing: -0.008em;
+    line-height: 1.25;
+  }
+  h3 {
+    font-size: 1.18rem;
+    margin-top: 1.8rem;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  h4 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 1.4rem;
+    margin-bottom: 0.3rem;
+    color: var(--accent-2);
+  }
+  p { margin: 0.9rem 0; }
+  blockquote {
+    margin: 1.4rem 0;
+    padding: 1rem 1.2rem;
+    border-left: 3px solid var(--accent);
+    background: var(--card);
+    font-style: italic;
+    color: #2a2a2a;
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+  ul, ol { padding-left: 1.4rem; }
+  li { margin: 0.4rem 0; }
+
+  .toc {
+    background: var(--card-2);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0 3rem;
+    border-left: 3px solid var(--accent);
+    font-size: 0.95rem;
+  }
+  .toc strong {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .toc ul { columns: 2; column-gap: 1.5rem; padding-left: 1.2rem; }
+  .toc li { margin: 0.25rem 0; break-inside: avoid; }
+
+  .tool-card {
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    padding: 1.4rem 1.6rem;
+    margin: 1.5rem 0;
+    border-radius: 2px;
+  }
+  .tool-card h3 {
+    margin-top: 0;
+    color: var(--accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .tool-card h3 .slug {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: normal;
+    font-family: "SF Mono", "Menlo", "Monaco", monospace;
+  }
+  .tool-card p:last-child { margin-bottom: 0; }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+  .compare-table th {
+    text-align: left;
+    background: var(--card-2);
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+  .compare-table td {
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid #d8d3c4;
+    vertical-align: top;
+  }
+  .compare-table td:first-child { font-weight: bold; color: var(--accent); white-space: nowrap; }
+
+  .cta {
+    margin-top: 3rem;
+    padding: 1.8rem 2rem;
+    background: #1f1f1f;
+    color: var(--paper);
+    border-radius: 2px;
+  }
+  .cta h3 { color: var(--paper); margin-top: 0; }
+  .cta a { color: #f0e4c8; }
+
+  .resource-block {
+    background: var(--card);
+    padding: 1.4rem 1.7rem;
+    margin: 1.5rem 0;
+    border-left: 3px solid var(--accent-3);
+  }
+  .resource-block h3 {
+    margin-top: 0;
+    color: var(--accent-3);
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .resource-block ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.2rem;
+    columns: 2;
+    column-gap: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .resource-block li { margin: 0.3rem 0; break-inside: avoid; }
+
+  .meta-footer {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:hover { color: var(--accent-2); }
+  em { font-style: italic; }
+
+  @media (max-width: 600px) {
+    body { padding: 2rem 1rem 4rem; font-size: 1rem; }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.35rem; }
+    .toc ul, .resource-block ul { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<h1>TextKit.tech: The Complete Guide to Browser-Local Text Tools — Word Counter, JSON Formatter, Case Converter, Token Counter, and Twenty-Nine More</h1>
+<p class="deck">A long look at <a href="https://textkit.tech/">TextKit</a> — the free, private, browser-local suite of text utilities for writers, developers, and SEOs. Thirty-three tools, forty-one long-form guides, and a single design principle: your text never leaves your machine.</p>
+
+<div class="toc">
+<strong>What this guide covers</strong>
+<ul>
+  <li><a href="#what-is-textkit">What TextKit Actually Is</a></li>
+  <li><a href="#counting">Counting Words and Characters</a></li>
+  <li><a href="#cleaning">Cleaning Up Text</a></li>
+  <li><a href="#case">Case Conversion and Code Naming</a></li>
+  <li><a href="#dev">Developer Utilities</a></li>
+  <li><a href="#lists">List Operations</a></li>
+  <li><a href="#encoding">Encoding, Decoding, Translation</a></li>
+  <li><a href="#generators">Generators</a></li>
+  <li><a href="#seo">SEO and URL Tools</a></li>
+  <li><a href="#ai">For the AI Era</a></li>
+  <li><a href="#privacy">Browser-Local by Design</a></li>
+  <li><a href="#start">Where to Start</a></li>
+  <li><a href="#all-tools">All 33 Tools</a></li>
+  <li><a href="#all-guides">All 41 Guides</a></li>
+</ul>
+</div>
+
+<p>If you have arrived here after typing <em>count twitter characters</em>, <em>remove spaces</em>, <em>case converter</em>, <em>json formatter</em>, <em>text diff</em>, <em>remove duplicate online</em>, <em>palindrome finder</em>, <em>sort lines alphabetically</em>, <em>camel case vs kebab case</em>, or any of the other twenty-odd queries that send writers and developers looking for a simple text utility on a Tuesday afternoon — the short answer is that you have probably found the right place. <a href="https://textkit.tech/">TextKit</a> is the free, browser-local suite that does these jobs without an account, without an upload, and without sending a single keystroke to a server.</p>
+
+<p>The longer answer is the rest of this guide. There are thirty-three tools on the site, forty-one long-form articles in <a href="https://textkit.tech/blog/">the blog</a>, and a coherent philosophy underneath all of it. Most readers arrive looking for one tool and leave knowing about three. This piece is the map.</p>
+
+<h2 id="what-is-textkit">What TextKit Actually Is</h2>
+
+<p><a href="https://textkit.tech/about">TextKit</a> is a free suite of browser-local text tools for writers, developers, and SEOs. The defining word is <em>browser-local</em>. Every operation — counting characters, formatting JSON, removing duplicates, hashing a string, generating a slug — happens inside your browser tab. Nothing is uploaded. The site has no login, no paywall, no tracking pixel on the tool pages, and no server endpoint that could even theoretically retain what you paste in.</p>
+
+<p>That single architectural choice is what separates TextKit from the average online text-tool site. Most competitors process server-side; a few are honest about it, most are vague. TextKit is unambiguous on the <a href="https://textkit.tech/privacy">privacy page</a> and in the small print under every tool: the JavaScript runs in your browser, the input never crosses the network, and you can verify it by opening the network tab in your developer tools.</p>
+
+<p>The product catalog splits into three tiers. The tools — thirty-three of them, each one a single-purpose page that loads in under a second. The guides — forty-one long-form articles in <a href="https://textkit.tech/blog/">the TextKit blog</a> that explain the standards, the edge cases, the workflows. And the index pages — <a href="https://textkit.tech/">home</a>, <a href="https://textkit.tech/about">about</a>, and the legal pages — that hold the rest together.</p>
+
+<h2 id="counting">Counting Words, Characters, and Social-Post Limits</h2>
+
+<p>The most common reason anyone reaches for a text tool is the most mechanical one: they need to know how long something is, and the social platform or the meta-description field or the SMS gateway will not tell them in advance.</p>
+
+<div class="tool-card">
+<h3>Word Counter <span class="slug">/word-counter</span></h3>
+<p>The <a href="https://textkit.tech/word-counter">word counter</a> gives you a live word count, character count, sentence count, paragraph count, and reading time as you type. It is the workhorse tool of the site — the one writers leave open in a tab while drafting blog posts, email replies, college essays, and product descriptions. The <a href="https://textkit.tech/blog/blog-post-length-how-many-words-2026">companion guide on blog post length</a> covers the optimal word count by content type and the recent changes in how AI search engines treat length as a citation signal.</p>
+</div>
+
+<div class="tool-card">
+<h3>Character Counter — Twitter, SMS, Meta Description <span class="slug">/character-counter</span></h3>
+<p>If you have searched <em>count characters for twitter</em>, <em>count twitter characters</em>, or <em>character count for tweet</em>, the <a href="https://textkit.tech/character-counter">TextKit character counter</a> is the tool. Live limits for Twitter (280), Instagram captions, LinkedIn posts, SMS (160 GSM-7, 70 UCS-2), Facebook, TikTok, and a handful of meta-tag limits. Emoji are counted by their actual code-point weight, which matters more than most casual tools admit. The deeper background sits in <a href="https://textkit.tech/blog/character-count-the-complete-guide-2026">the complete guide to character count</a> — where character count actually matters, how the Twitter limit became 280, and the emoji and surrogate-pair gotchas.</p>
+</div>
+
+<div class="tool-card">
+<h3>Sentence Counter, Syllable Counter, Readability Checker <span class="slug">/sentence-counter · /syllable-counter · /readability</span></h3>
+<p>The counting cluster has grown past words and characters. The <a href="https://textkit.tech/sentence-counter">sentence counter</a> splits text into sentences and flags the over-long ones that wear a reader down. The <a href="https://textkit.tech/syllable-counter">syllable counter</a> counts syllables per word and per line, which is what you need for haiku, poetry, and metered headlines. And the <a href="https://textkit.tech/readability">readability checker</a> computes the Flesch and Flesch-Kincaid scores so you know the reading grade of your text before you publish it. Each has its own guide: the <a href="https://textkit.tech/blog/sentence-counter-the-complete-guide-2026">sentence counter</a>, the <a href="https://textkit.tech/blog/syllable-counter-the-complete-guide-2026">syllable counter</a>, and the <a href="https://textkit.tech/blog/readability-checker-the-complete-guide-2026">readability checker</a>.</p>
+</div>
+
+<h2 id="cleaning">Cleaning Up Text — Spaces, Duplicates, Search and Replace</h2>
+
+<p>The second-most common reason: text comes out of one tool dirty and needs to go into another tool clean. Spreadsheets paste with non-breaking spaces. AI output ships with markdown bold and odd punctuation. Web copy arrives with double-spaces that nobody remembers typing. The cleanup cluster is where TextKit earns the daily-driver tab in most users' browsers.</p>
+
+<div class="tool-card">
+<h3>Remove Extra Spaces <span class="slug">/remove-spaces</span></h3>
+<p>The <a href="https://textkit.tech/remove-spaces">remove spaces tool</a> collapses double spaces to single, strips leading and trailing whitespace, removes blank lines, and tidies the kind of irregular spacing that copy-paste introduces. The same page answers the related queries — <em>remove spacing</em>, <em>remove blank spaces</em>, <em>how to remove double spaces</em> — because the underlying operation is the same. Anyone who has pasted a paragraph from a PDF into a CMS knows why this exists.</p>
+</div>
+
+<div class="tool-card">
+<h3>Remove Duplicate Lines <span class="slug">/remove-duplicates</span></h3>
+<p>If you have a list of email addresses, URLs, names, SKUs, or anything else that should be unique and is not, <a href="https://textkit.tech/remove-duplicates">remove duplicate lines</a> is the tool. Options to ignore case, ignore leading whitespace, sort alphabetically after dedup, or preserve original order. The same page handles the <em>remove duplicate online</em> search-intent that brings most users here. The <a href="https://textkit.tech/blog/how-to-remove-duplicate-lines">how-to guide on removing duplicate lines</a> covers the three edge cases that break most dedup workflows — case sensitivity, whitespace, order preservation — and the patterns that handle all three at once.</p>
+</div>
+
+<div class="tool-card">
+<h3>Find &amp; Replace with Regex <span class="slug">/find-replace</span></h3>
+<p>The <a href="https://textkit.tech/find-replace">find and replace tool</a> does plain-text search-and-replace with case-insensitive and whole-word options, and full JavaScript-flavored regex for everything more complex. Useful for the <em>search and replace in javascript</em> and <em>regex replace test</em> queries that bring developers to the site — paste, write the pattern, see the result, copy it back. No script to write, no IDE to open.</p>
+</div>
+
+<h2 id="case">Case Conversion and Code Naming Conventions</h2>
+
+<div class="tool-card">
+<h3>Case Converter — UPPERCASE, lowercase, camelCase, snake_case, kebab-case <span class="slug">/case-converter</span></h3>
+<p>The <a href="https://textkit.tech/case-converter">case converter</a> handles ten transformations: UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, SCREAMING_SNAKE_CASE, and dot.case. Instant and Unicode-correct — the German ß, the Turkish dotless i, and the accented vowels of Spanish and Portuguese all behave the way the language specifies, not the way a naive uppercase function defaults. The <a href="https://textkit.tech/blog/case-converter-the-complete-guide-2026">complete guide to case conversion</a> covers the AP, APA, and Chicago title-case rules and the Unicode gotchas that catch the casual implementations.</p>
+</div>
+
+<p>The companion essay — <a href="https://textkit.tech/blog/camelcase-snake-case-kebab-case">camelCase vs snake_case vs kebab-case</a> — is the page that ranks for the <em>camel case vs kebab case</em> and <em>camelcase vs kebab case</em> queries developers run when they need to defend a naming choice in a code review. The short version: camelCase for JavaScript and Java identifiers, snake_case for Python variables and database columns, kebab-case for URL slugs and CSS classes, PascalCase for type names, SCREAMING_SNAKE_CASE for constants. The long version is in the article.</p>
+
+<h2 id="dev">Developer Utilities — JSON, Diff, Hash, Encoding</h2>
+
+<p>The developer cluster is the densest on the site. These are the tools that get bookmarked once and used for years.</p>
+
+<div class="tool-card">
+<h3>JSON Formatter, Validator, Minifier <span class="slug">/json-formatter</span></h3>
+<p>The <a href="https://textkit.tech/json-formatter">JSON formatter</a> pretty-prints, validates, and minifies JSON. Paste raw JSON, get a formatted version with sortable keys, configurable indentation, and a clear error pointer when something is malformed. The companion guide — <a href="https://textkit.tech/blog/validating-json-browser-vscode-jq-2026">validating JSON in 2026: browser vs VS Code vs jq</a> — is the field guide for which validator to use when. The browser tool wins for one-off pastes; jq wins for streaming; VS Code wins for schema-aware editing.</p>
+</div>
+
+<div class="tool-card">
+<h3>JSON to CSV Converter <span class="slug">/json-csv</span></h3>
+<p>The <a href="https://textkit.tech/json-csv">JSON to CSV converter</a> flattens an array of JSON objects into a CSV you can open in a spreadsheet, and runs the reverse direction from CSV back to JSON. It handles nested objects, custom headers, and the comma-and-quote escaping that breaks most home-rolled conversions. The <a href="https://textkit.tech/blog/json-csv-converter-the-complete-guide-2026">complete guide to JSON and CSV</a> covers flattening nested structures and the cases that confuse Excel.</p>
+</div>
+
+<div class="tool-card">
+<h3>Text Diff — Compare Two Texts Side by Side <span class="slug">/text-diff</span></h3>
+<p>The <a href="https://textkit.tech/text-diff">text diff tool</a> compares two pieces of text and highlights every added, removed, and changed line. Useful for proofreading two drafts, comparing API responses, checking whether a translation matches the source, or auditing what an AI assistant changed when you asked it to "improve" a paragraph.</p>
+</div>
+
+<div class="tool-card">
+<h3>Hash Generator — MD5, SHA-1, SHA-256, SHA-512 <span class="slug">/hash-generator</span></h3>
+<p>The <a href="https://textkit.tech/hash-generator">hash generator</a> computes MD5, SHA-1, SHA-256, and SHA-512 hashes of any string. Browser-local — which matters more here than anywhere else on the site, because hashing a password or an API key on a server-side tool would be a security violation. TextKit's runs in the browser; the input string never leaves the page.</p>
+</div>
+
+<div class="tool-card">
+<h3>Base64 Encoder and Decoder <span class="slug">/base64</span></h3>
+<p>The <a href="https://textkit.tech/base64">Base64 tool</a> encodes plain text to Base64 and decodes Base64 back to plain text, with full UTF-8 support so accented characters, CJK ideographs, and emoji round-trip correctly. The kind of tool you need three times a year and want to find in under five seconds.</p>
+</div>
+
+<div class="tool-card">
+<h3>Binary Code Translator <span class="slug">/binary</span></h3>
+<p>The <a href="https://textkit.tech/binary">binary code translator</a> converts text to binary and binary back to text. UTF-8 supported, multi-byte safe, emoji friendly. The accompanying <a href="https://textkit.tech/blog/binary-code-translator-the-complete-guide-2026">complete guide to binary translation</a> walks through how a translator for binary actually turns text into base-2 and back — the byte, the bit, UTF-8 versus ASCII, the surrogate-pair handling for non-BMP characters.</p>
+</div>
+
+<h2 id="lists">List Operations — Sort, Shuffle, Prefix, Suffix</h2>
+
+<p>A surprising amount of professional text work turns out to be list work. Email lists, URL lists, item lists, line lists. TextKit's list cluster handles the six operations every workflow ends up needing.</p>
+
+<div class="tool-card">
+<h3>Sort Lines — Alphabetical, Numerical, by Length <span class="slug">/sort-lines</span></h3>
+<p>The <a href="https://textkit.tech/sort-lines">sort lines tool</a> handles the queries readers actually type: <em>sort lines alphabetically</em>, <em>sort lines by length</em>, numerical sort for lists of numbers, and reverse sort. Case-insensitive and unique options are toggles, not separate tools. The <a href="https://textkit.tech/blog/how-to-sort-lines-alphabetically">guide on sorting lines</a> covers the five sort orders and how to get each in the browser, in Excel, and in the command line.</p>
+</div>
+
+<div class="tool-card">
+<h3>Shuffle Lines — True Fisher-Yates <span class="slug">/shuffle-lines</span></h3>
+<p>The <a href="https://textkit.tech/shuffle-lines">shuffle lines tool</a> randomizes the order of any list using a real Fisher-Yates shuffle. The <a href="https://textkit.tech/blog/how-to-shuffle-lines-fisher-yates">accompanying article</a> explains why the wrong shuffles to avoid — the naive sort-with-random-comparator that still ships in too many tutorials — produce biased orderings, and when a uniform random permutation actually matters.</p>
+</div>
+
+<div class="tool-card">
+<h3>Add Prefix and Suffix to Each Line <span class="slug">/prefix-suffix</span></h3>
+<p>The <a href="https://textkit.tech/prefix-suffix">prefix and suffix tool</a> wraps every line in custom text — quotes, brackets, HTML tags, SQL values, JSON quotes, markdown bullets. The classic five patterns are covered in the <a href="https://textkit.tech/blog/how-to-add-prefix-suffix-to-each-line">how-to guide</a>, alongside the cleanup step that prevents the trailing-comma error in SQL IN clauses.</p>
+</div>
+
+<p>If you spend a lot of time reshaping lists, the <a href="https://textkit.tech/blog/list-operations-complete-guide-2026">complete guide to list operations</a> covers all six — sort, dedupe, shuffle, prefix, suffix, reformat — as one unified workflow. The same essay covers <a href="https://textkit.tech/blog/format-list-sql-json-html">how to format a list for SQL, JSON, or HTML</a>, which is the next thing most readers ask once they have the list cleaned up.</p>
+
+<h2 id="encoding">Encoding, Decoding, and Translation</h2>
+
+<div class="tool-card">
+<h3>Morse Code Translator <span class="slug">/morse-code</span></h3>
+<p>The <a href="https://textkit.tech/morse-code">Morse code translator</a> converts text to Morse and Morse back to text, with audio playback at the standard 20 WPM. ITU standard, browser-local, with the dits and dahs synthesized in the page. The <a href="https://textkit.tech/blog/morse-code-translator-the-complete-guide-2026">complete guide to Morse code</a> covers the 1844 origin, the difference between ITU and American Morse, the PARIS WPM standard, and the audio-synthesis logic the tool uses.</p>
+</div>
+
+<div class="tool-card">
+<h3>Pig Latin Translator <span class="slug">/pig-latin</span></h3>
+<p>The <a href="https://textkit.tech/pig-latin">Pig Latin translator</a> encodes English to Pig Latin and decodes back. Classic schoolyard rules — words beginning with a consonant get the consonant moved to the end plus -ay; words beginning with a vowel get -way (or -yay, or -hay, depending on the variant). The <a href="https://textkit.tech/blog/pig-latin-translator-the-complete-guide-2026">complete guide</a> covers the two rules, the regional variants, the consonant-cluster edge cases, and the schoolyard history.</p>
+</div>
+
+<h2 id="generators">Generators — Lorem Ipsum, Random Words, Unicode Styles</h2>
+
+<div class="tool-card">
+<h3>Lorem Ipsum Generator <span class="slug">/lorem-ipsum</span></h3>
+<p>The <a href="https://textkit.tech/lorem-ipsum">Lorem Ipsum generator</a> produces placeholder text by paragraphs, sentences, or words. Classic Cicero-derived Lorem Ipsum, or random pseudo-Latin if you need filler that looks plausibly Latin without being the famous passage. The query <em>latin for text</em> brings a surprising number of designers and writers here — the <a href="https://textkit.tech/blog/lorem-ipsum-the-complete-guide-2026">complete guide to Lorem Ipsum</a> covers where it actually comes from (a scrambled passage from Cicero's <em>De finibus</em>), why designers still use 500-year-old fake Latin, when it hurts the work, and the modern alternatives worth knowing about.</p>
+</div>
+
+<div class="tool-card">
+<h3>Random Word Generator <span class="slug">/random-word</span></h3>
+<p>The <a href="https://textkit.tech/random-word">random word generator</a> produces English words on demand, filterable by part of speech — noun, adjective, verb, adverb. Click to copy. Useful for writing prompts, brainstorming sessions, vocabulary games, password seeds, and the seven other use cases covered in the <a href="https://textkit.tech/blog/random-word-generator-the-complete-guide-2026">complete guide</a>.</p>
+</div>
+
+<div class="tool-card">
+<h3>Bold Text Generator — Unicode Fonts <span class="slug">/bold-text</span></h3>
+<p>The <a href="https://textkit.tech/bold-text">bold text generator</a> converts plain text into bold, italic, cursive, fraktur, monospace, or outlined Unicode characters you can paste anywhere — Instagram bios, LinkedIn headlines, Twitter posts, email subject lines, places that do not support real formatting. The <a href="https://textkit.tech/blog/bold-text-generator-unicode-fonts-2026">accompanying guide</a> explains how the Mathematical Alphanumeric Symbols block of Unicode makes this work and why some characters fall back to regular when they hit a platform that does not support the full range.</p>
+</div>
+
+<div class="tool-card">
+<h3>Invisible Text Generator <span class="slug">/invisible-text</span></h3>
+<p>The <a href="https://textkit.tech/invisible-text">invisible text generator</a> outputs blank Unicode characters — useful for empty Instagram bios, WhatsApp message spacing, Discord username tricks, and the surprisingly common requirement of "submit this form even though the field cannot be empty." The <a href="https://textkit.tech/blog/invisible-text-generator-the-complete-guide-2026">complete guide</a> documents which characters paste cleanly on which platforms and which ones get stripped by content filters.</p>
+</div>
+
+<div class="tool-card">
+<h3>Text Reverser, Text Repeater, Markdown Table Generator <span class="slug">/text-reverser · /text-repeater · /markdown-table</span></h3>
+<p>The <a href="https://textkit.tech/text-reverser">text reverser</a> handles four reversal modes — characters, words, lines, and reverse-each-line. The <a href="https://textkit.tech/text-repeater">text repeater</a> repeats any text with configurable separators and counts. The <a href="https://textkit.tech/markdown-table">markdown table generator</a> builds GitHub-flavored markdown tables from scratch or from pasted Excel ranges, with live preview. The supporting essays — <a href="https://textkit.tech/blog/markdown-table-complete-guide-2026">the complete guide to markdown tables</a>, the <a href="https://textkit.tech/blog/markdown-table-cheatsheet">syntax cheatsheet</a>, the <a href="https://textkit.tech/blog/how-to-make-a-markdown-table-60-seconds">60-second how-to</a>, and the <a href="https://textkit.tech/blog/markdown-vs-html-tables">markdown vs HTML tables comparison</a> — cover every edge case the table tool can produce.</p>
+</div>
+
+<div class="tool-card">
+<h3>Palindrome Checker <span class="slug">/palindrome</span></h3>
+<p>The <a href="https://textkit.tech/palindrome">palindrome checker</a> answers the question the queries <em>check for palindromes</em>, <em>palindrome finder</em>, and <em>palindrome text</em> ask: is this word, phrase, or sentence the same forward and backward? Ignores spaces, punctuation, and case, the way the classic palindrome convention requires.</p>
+</div>
+
+<h2 id="seo">SEO and URL Tools</h2>
+
+<div class="tool-card">
+<h3>URL Slug Generator <span class="slug">/url-slug</span></h3>
+<p>The <a href="https://textkit.tech/url-slug">URL slug generator</a> turns any title — a blog post, a product name, a heading — into a clean, SEO-friendly URL slug. Handles transliteration of accented characters and non-Latin scripts, stop-word removal, custom separators (hyphens, underscores, dots), and the length-trimming heuristics search engines actually reward.</p>
+<p>This is the cluster TextKit has invested the most editorial effort in. Four long-form guides anchor the slug topic: <a href="https://textkit.tech/blog/how-to-create-a-url-slug">how to create a URL slug in five seconds</a>, the <a href="https://textkit.tech/blog/url-slug-seo-the-definitive-guide-2026">definitive 2026 guide to URL slug SEO</a>, <a href="https://textkit.tech/blog/dash-vs-underscore-url-slug">dash vs underscore in URLs and how Google reads each</a>, and <a href="https://textkit.tech/blog/url-slugs-ai-search-chatgpt-perplexity">URL slugs in the age of AI search</a> — because ChatGPT, Perplexity, and Gemini now cite URLs as sources, and slug clarity has begun to influence whether an AI engine picks one source over another.</p>
+</div>
+
+<div class="tool-card">
+<h3>Email Extractor <span class="slug">/email-extractor</span></h3>
+<p>The <a href="https://textkit.tech/email-extractor">email extractor</a> pulls a clean, deduplicated list of every email address out of any block of text — resumes, scraped web pages, CSV dumps, conference programs, Slack exports. Because it is browser-local, none of those email addresses ever cross the network. The companion essays — <a href="https://textkit.tech/blog/email-extraction-complete-guide-2026">the complete guide to email extraction</a>, the <a href="https://textkit.tech/blog/email-regex-cheatsheet">email regex cheatsheet with worked examples</a>, the <a href="https://textkit.tech/blog/email-extractor-online-free-tools-2026">free vs paid email extractor comparison</a>, the <a href="https://textkit.tech/blog/hunter-vs-free-email-extractors">Hunter.io versus free extractors review</a>, and the <a href="https://textkit.tech/blog/how-to-extract-emails-from-text">how-to-extract-emails-from-text walkthrough</a> — cover the regex patterns, the obfuscation handling, the deliverability verification step, and the legal limits.</p>
+</div>
+
+<h2 id="ai">For the AI Era — Cleaning Up ChatGPT and Claude Output</h2>
+
+<p>One of the unexpected fits TextKit has found is the AI-output cleanup workflow. ChatGPT and Claude produce markdown-native text that is rarely production-ready as written. The tools and the guides on TextKit map directly onto the operations that workflow needs: strip the markdown bold, normalize the smart quotes, collapse the extra spaces, deduplicate the list, convert the case, validate the JSON the assistant generated, diff what changed when you asked the model to rewrite a paragraph.</p>
+
+<p>Three tools anchor this cluster directly. The <a href="https://textkit.tech/token-counter">token counter</a> shows the real token count a model like GPT-4o or Claude sees, with a live API cost estimate, so you stop guessing against the context limit; most online "token counters" just divide the character count by four, and that is wrong often enough to matter. <a href="https://textkit.tech/summarizer">Text Summarizer</a> condenses a long passage to its core points, all inside the browser. And <a href="https://textkit.tech/prompt-templates">Prompt Templates</a> collects ready-to-use ChatGPT and Claude prompts you fill in and copy. Each has its own guide: the <a href="https://textkit.tech/blog/token-counter-the-complete-guide-2026">token counter</a>, the <a href="https://textkit.tech/blog/text-summarizer-the-complete-guide-2026">text summarizer</a>, and <a href="https://textkit.tech/blog/prompt-templates-the-complete-guide-2026">prompt templates</a>.</p>
+
+<p>The two essays that anchor this cluster are <a href="https://textkit.tech/blog/format-chatgpt-output-for-production">the five-step workflow for formatting ChatGPT and Claude output</a> and the broader <a href="https://textkit.tech/blog/text-tools-for-the-ai-era-2026">text tools for the AI era</a>, which inventories the twelve cleanup operations every AI worker ends up running by hand and shows which TextKit tool covers each one.</p>
+
+<h2 id="privacy">Browser-Local by Design</h2>
+
+<p>Every tool on TextKit follows the same operating discipline, articulated on the <a href="https://textkit.tech/privacy">privacy page</a>: the JavaScript runs in your browser, the input never crosses the network, and the absence of a server-side processing step is verifiable in the developer-tools network panel. There is no account system, no upload step, no "we promise we don't store it" — because there is no surface where storage could even occur.</p>
+
+<p>That choice has trade-offs. Some operations are slower in the browser than they would be on a server. A few tools that would benefit from heavy backend lifting — large-corpus deduplication, multi-gigabyte JSON validation — are intentionally not on the site. But for the daily working-text scale that ninety-nine percent of users actually have, browser-local is faster than the round-trip to a server, and it removes the entire surface area of the privacy question.</p>
+
+<p>The <a href="https://textkit.tech/about">about page</a> describes the principle in the language TextKit prefers: <em>your text, your machine</em>.</p>
+
+<h2 id="start">Where to Start</h2>
+
+<p>If you have read this far, here is the routing logic:</p>
+
+<table class="compare-table">
+<thead>
+  <tr><th>If you came looking for…</th><th>Start here</th></tr>
+</thead>
+<tbody>
+  <tr><td>Counting words or characters</td><td><a href="https://textkit.tech/word-counter">/word-counter</a> · <a href="https://textkit.tech/character-counter">/character-counter</a></td></tr>
+  <tr><td>Twitter character limit</td><td><a href="https://textkit.tech/character-counter">/character-counter</a></td></tr>
+  <tr><td>Counting tokens in a prompt</td><td><a href="https://textkit.tech/token-counter">/token-counter</a></td></tr>
+  <tr><td>Sentences, syllables, or readability</td><td><a href="https://textkit.tech/sentence-counter">/sentence-counter</a> · <a href="https://textkit.tech/syllable-counter">/syllable-counter</a> · <a href="https://textkit.tech/readability">/readability</a></td></tr>
+  <tr><td>Cleaning up spacing</td><td><a href="https://textkit.tech/remove-spaces">/remove-spaces</a></td></tr>
+  <tr><td>Dedup a list</td><td><a href="https://textkit.tech/remove-duplicates">/remove-duplicates</a></td></tr>
+  <tr><td>Case conversion</td><td><a href="https://textkit.tech/case-converter">/case-converter</a></td></tr>
+  <tr><td>JSON formatting / validation</td><td><a href="https://textkit.tech/json-formatter">/json-formatter</a> · <a href="https://textkit.tech/json-csv">/json-csv</a></td></tr>
+  <tr><td>Comparing two pieces of text</td><td><a href="https://textkit.tech/text-diff">/text-diff</a></td></tr>
+  <tr><td>Find and replace with regex</td><td><a href="https://textkit.tech/find-replace">/find-replace</a></td></tr>
+  <tr><td>Hash a string (MD5, SHA-256, etc)</td><td><a href="https://textkit.tech/hash-generator">/hash-generator</a></td></tr>
+  <tr><td>Base64 or binary encoding</td><td><a href="https://textkit.tech/base64">/base64</a> · <a href="https://textkit.tech/binary">/binary</a></td></tr>
+  <tr><td>Sort, shuffle, or reshape a list</td><td><a href="https://textkit.tech/sort-lines">/sort-lines</a> · <a href="https://textkit.tech/shuffle-lines">/shuffle-lines</a> · <a href="https://textkit.tech/prefix-suffix">/prefix-suffix</a></td></tr>
+  <tr><td>Placeholder text for a mockup</td><td><a href="https://textkit.tech/lorem-ipsum">/lorem-ipsum</a></td></tr>
+  <tr><td>SEO-friendly URL slug</td><td><a href="https://textkit.tech/url-slug">/url-slug</a></td></tr>
+  <tr><td>Email extraction</td><td><a href="https://textkit.tech/email-extractor">/email-extractor</a></td></tr>
+  <tr><td>Bold or invisible Unicode</td><td><a href="https://textkit.tech/bold-text">/bold-text</a> · <a href="https://textkit.tech/invisible-text">/invisible-text</a></td></tr>
+  <tr><td>Morse or Pig Latin</td><td><a href="https://textkit.tech/morse-code">/morse-code</a> · <a href="https://textkit.tech/pig-latin">/pig-latin</a></td></tr>
+  <tr><td>Palindrome check</td><td><a href="https://textkit.tech/palindrome">/palindrome</a></td></tr>
+  <tr><td>Markdown table</td><td><a href="https://textkit.tech/markdown-table">/markdown-table</a></td></tr>
+  <tr><td>Random word</td><td><a href="https://textkit.tech/random-word">/random-word</a></td></tr>
+  <tr><td>Reverse or repeat text</td><td><a href="https://textkit.tech/text-reverser">/text-reverser</a> · <a href="https://textkit.tech/text-repeater">/text-repeater</a></td></tr>
+  <tr><td>Summarize text or build AI prompts</td><td><a href="https://textkit.tech/summarizer">/summarizer</a> · <a href="https://textkit.tech/prompt-templates">/prompt-templates</a></td></tr>
+</tbody>
+</table>
+
+<h2 id="all-tools">All 33 Tools — Complete Catalog</h2>
+
+<div class="resource-block">
+<h3>Counting &amp; Measuring</h3>
+<ul>
+  <li><a href="https://textkit.tech/word-counter">Word Counter</a></li>
+  <li><a href="https://textkit.tech/character-counter">Character Counter</a></li>
+  <li><a href="https://textkit.tech/sentence-counter">Sentence Counter</a></li>
+  <li><a href="https://textkit.tech/syllable-counter">Syllable Counter</a></li>
+  <li><a href="https://textkit.tech/readability">Readability Checker</a></li>
+</ul>
+</div>
+
+<div class="resource-block">
+<h3>Cleaning &amp; Editing</h3>
+<ul>
+  <li><a href="https://textkit.tech/remove-spaces">Remove Extra Spaces</a></li>
+  <li><a href="https://textkit.tech/remove-duplicates">Remove Duplicate Lines</a></li>
+  <li><a href="https://textkit.tech/find-replace">Find &amp; Replace (with Regex)</a></li>
+</ul>
+</div>
+
+<div class="resource-block">
+<h3>Case Conversion</h3>
+<ul>
+  <li><a href="https://textkit.tech/case-converter">Case Converter</a></li>
+</ul>
+</div>
+
+<div class="resource-block">
+<h3>Developer Utilities</h3>
+<ul>
+  <li><a href="https://textkit.tech/json-formatter">JSON Formatter / Validator / Minifier</a></li>
+  <li><a href="https://textkit.tech/json-csv">JSON to CSV Converter</a></li>
+  <li><a href="https://textkit.tech/text-diff">Text Diff</a></li>
+  <li><a href="https://textkit.tech/hash-generator">Hash Generator (MD5 / SHA-1 / SHA-256 / SHA-512)</a></li>
+  <li><a href="https://textkit.tech/base64">Base64 Encoder &amp; Decoder</a></li>
+  <li><a href="https://textkit.tech/binary">Binary Code Translator</a></li>
+</ul>
+</div>
+
+<div class="resource-block">
+<h3>List Operations</h3>
+<ul>
+  <li><a href="https://textkit.tech/sort-lines">Sort Lines</a></li>
+  <li><a href="https://textkit.tech/shuffle-lines">Shuffle Lines</a></li>
+  <li><a href="https://textkit.tech/prefix-suffix">Prefix &amp; Suffix Each Line</a></li>
+</ul>
+</div>
+
+<div class="resource-block">
+<h3>Encoding &amp; Translation</h3>
+<ul>
+  <li><a href="https://textkit.tech/morse-code">Morse Code Translator</a></li>
+  <li><a href="https://textkit.tech/pig-latin">Pig Latin Translator</a></li>
+</ul>
+</div>
+
+<div class="resource-block">
+<h3>Generators</h3>
+<ul>
+  <li><a href="https://textkit.tech/lorem-ipsum">Lorem Ipsum Generator</a></li>
+  <li><a href="https://textkit.tech/random-word">Random Word Generator</a></li>
+  <li><a href="https://textkit.tech/bold-text">Bold Text Generator (Unicode)</a></li>
+  <li><a href="https://textkit.tech/invisible-text">Invisible Text Generator</a></li>
+  <li><a href="https://textkit.tech/text-reverser">Text Reverser</a></li>
+  <li><a href="https://textkit.tech/text-repeater">Text Repeater</a></li>
+  <li><a href="https://textkit.tech/markdown-table">Markdown Table Generator</a></li>
+  <li><a href="https://textkit.tech/palindrome">Palindrome Checker</a></li>
+</ul>
+</div>
+
+<div class="resource-block">
+<h3>SEO &amp; Productivity</h3>
+<ul>
+  <li><a href="https://textkit.tech/url-slug">URL Slug Generator</a></li>
+  <li><a href="https://textkit.tech/email-extractor">Email Extractor</a></li>
+</ul>
+</div>
+
+<div class="resource-block">
+<h3>For the AI Era</h3>
+<ul>
+  <li><a href="https://textkit.tech/token-counter">Token Counter</a></li>
+  <li><a href="https://textkit.tech/summarizer">Text Summarizer</a></li>
+  <li><a href="https://textkit.tech/prompt-templates">Prompt Templates</a></li>
+</ul>
+</div>
+
+<h2 id="all-guides">All 41 Guides — The TextKit Blog</h2>
+
+<div class="resource-block">
+<h3>The "Complete Guide (2026)" Series</h3>
+<ul>
+  <li><a href="https://textkit.tech/blog/binary-code-translator-the-complete-guide-2026">Binary Code Translator — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/bold-text-generator-unicode-fonts-2026">Bold Text Generator — How Unicode Fonts Work</a></li>
+  <li><a href="https://textkit.tech/blog/case-converter-the-complete-guide-2026">Case Converter — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/character-count-the-complete-guide-2026">Character Count — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/sentence-counter-the-complete-guide-2026">Sentence Counter — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/syllable-counter-the-complete-guide-2026">Syllable Counter — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/readability-checker-the-complete-guide-2026">Readability Checker — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/token-counter-the-complete-guide-2026">Token Counter — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/text-summarizer-the-complete-guide-2026">Text Summarizer — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/prompt-templates-the-complete-guide-2026">Prompt Templates — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/json-csv-converter-the-complete-guide-2026">JSON to CSV — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/email-extraction-complete-guide-2026">Email Extraction — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/invisible-text-generator-the-complete-guide-2026">Invisible Text Generator — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/list-operations-complete-guide-2026">List Operations — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/lorem-ipsum-the-complete-guide-2026">Lorem Ipsum — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/markdown-table-complete-guide-2026">Markdown Tables — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/morse-code-translator-the-complete-guide-2026">Morse Code Translator — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/pig-latin-translator-the-complete-guide-2026">Pig Latin Translator — Complete Guide</a></li>
+  <li><a href="https://textkit.tech/blog/random-word-generator-the-complete-guide-2026">Random Word Generator — Complete Guide</a></li>
+</ul>
+</div>
+
+<div class="resource-block">
+<h3>How-To and Workflow Guides</h3>
+<ul>
+  <li><a href="https://textkit.tech/blog/how-to-create-a-url-slug">How to Create a URL Slug (5-Second Method)</a></li>
+  <li><a href="https://textkit.tech/blog/how-to-extract-emails-from-text">How to Extract Emails from Any Text</a></li>
+  <li><a href="https://textkit.tech/blog/how-to-make-a-markdown-table-60-seconds">How to Make a Markdown Table in 60 Seconds</a></li>
+  <li><a href="https://textkit.tech/blog/how-to-remove-duplicate-lines">How to Remove Duplicate Lines</a></li>
+  <li><a href="https://textkit.tech/blog/how-to-shuffle-lines-fisher-yates">How to Shuffle Lines (Fisher-Yates)</a></li>
+  <li><a href="https://textkit.tech/blog/how-to-sort-lines-alphabetically">How to Sort Lines Alphabetically</a></li>
+  <li><a href="https://textkit.tech/blog/how-to-add-prefix-suffix-to-each-line">How to Add Prefix and Suffix to Each Line</a></li>
+  <li><a href="https://textkit.tech/blog/format-list-sql-json-html">How to Format a List for SQL, JSON, or HTML</a></li>
+  <li><a href="https://textkit.tech/blog/format-chatgpt-output-for-production">Format ChatGPT &amp; Claude Output — 5-Step Workflow</a></li>
+  <li><a href="https://textkit.tech/blog/text-tools-for-the-ai-era-2026">Text Tools for the AI Era — Clean LLM Output</a></li>
+</ul>
+</div>
+
+<div class="resource-block">
+<h3>Reference, Cheatsheets, and Comparisons</h3>
+<ul>
+  <li><a href="https://textkit.tech/blog/camelcase-snake-case-kebab-case">camelCase vs snake_case vs kebab-case</a></li>
+  <li><a href="https://textkit.tech/blog/email-regex-cheatsheet">Email Regex Cheatsheet (with Worked Examples)</a></li>
+  <li><a href="https://textkit.tech/blog/markdown-table-cheatsheet">Markdown Table Cheatsheet</a></li>
+  <li><a href="https://textkit.tech/blog/markdown-vs-html-tables">Markdown vs HTML Tables</a></li>
+  <li><a href="https://textkit.tech/blog/dash-vs-underscore-url-slug">Dash vs Underscore URL — How Google Reads Each</a></li>
+  <li><a href="https://textkit.tech/blog/hunter-vs-free-email-extractors">Hunter.io vs Free Email Extractors</a></li>
+  <li><a href="https://textkit.tech/blog/email-extractor-online-free-tools-2026">Email Extractor Online — Free vs Paid Tools</a></li>
+  <li><a href="https://textkit.tech/blog/validating-json-browser-vscode-jq-2026">Validating JSON 2026 — Browser vs VS Code vs jq</a></li>
+</ul>
+</div>
+
+<div class="resource-block">
+<h3>SEO &amp; AI-Search Essays</h3>
+<ul>
+  <li><a href="https://textkit.tech/blog/url-slug-seo-the-definitive-guide-2026">URL Slug SEO — The Definitive Guide (2026)</a></li>
+  <li><a href="https://textkit.tech/blog/url-slugs-ai-search-chatgpt-perplexity">URL Slugs in the Age of AI Search (ChatGPT, Perplexity)</a></li>
+  <li><a href="https://textkit.tech/blog/blog-post-length-how-many-words-2026">Blog Post Length 2026 — How Many Words to Write</a></li>
+  <li><a href="https://textkit.tech/blog/textkit-complete-guide-2026">TextKit — The Complete Guide (2026)</a></li>
+</ul>
+</div>
+
+<div class="cta">
+<h3>From TextKit</h3>
+<p>TextKit is a free, browser-local suite of thirty-three text tools and forty-one long-form guides for the people whose work touches text every day — writers, developers, marketers, SEOs, students, AI workers. The fastest way to start is to open <a href="https://textkit.tech/">the homepage</a>, pick the tool you need, and use it. No account, no upload, no waiting.</p>
+<p>If you want the practical map: <a href="https://textkit.tech/word-counter">word counter</a> for drafting, <a href="https://textkit.tech/json-formatter">JSON formatter</a> for code, <a href="https://textkit.tech/case-converter">case converter</a> for naming, <a href="https://textkit.tech/url-slug">URL slug</a> for SEO, <a href="https://textkit.tech/text-diff">text diff</a> for proofing, <a href="https://textkit.tech/remove-duplicates">remove duplicates</a> for lists. Everything else builds out from those six.</p>
+</div>
+
+<div class="meta-footer">
+<p><strong>About this guide.</strong> Independent long-form profile of <a href="https://textkit.tech/">TextKit.tech</a>, the browser-local text-tools suite. Tool list and guide list current as of the date of publication. Every tool runs in the browser. No text is uploaded. For privacy details, see <a href="https://textkit.tech/privacy">the TextKit privacy page</a>; for terms, see <a href="https://textkit.tech/terms">the terms of service</a>; for the broader vision, see <a href="https://textkit.tech/about">about TextKit</a>. Spanish version: <a href="https://textkit.tech/blog/textkit-la-guia-completa-2026">TextKit — la guía completa</a>.</p>
+</div>
+
+</body>
+</html>
